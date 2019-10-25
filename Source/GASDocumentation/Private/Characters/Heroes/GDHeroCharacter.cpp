@@ -72,6 +72,9 @@ void AGDHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAxis("TurnRate", this, &AGDHeroCharacter::TurnRate);
 
 	// Bind to AbilitySystemComponent
+	/*NOTE
+	* See Public/Characters/Abilities/GDAbilitySystemComponent.h for information on a crash that can happen because of incorret setup of this function call
+	*/
 	AbilitySystemComponent->BindAbilityActivationToInputComponent(PlayerInputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"),
 		FString("CancelTarget"), FString("EGDAbilityInputID"), static_cast<int32>(EGDAbilityInputID::Confirm), static_cast<int32>(EGDAbilityInputID::Cancel)));
 }
