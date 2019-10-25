@@ -79,6 +79,9 @@ void AGDHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 // Server only
 void AGDHeroCharacter::PossessedBy(AController * NewController)
 {
+	/*NOTE
+	* Call Super first or your InitializeAttributes will fail among other things because of network settings setup during the parents possion
+	*/
 	Super::PossessedBy(NewController);
 
 	AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
